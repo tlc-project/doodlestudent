@@ -1,0 +1,5 @@
+META-INF/panache-archive.marker
+org/acme/config/NativeGreetingResourceIT.class
+org/acme/resteasy/ExampleResourceTest.class
+org/acme/resteasy/NativeExampleResourceIT.class
+org/acme/config/GreetingResourceTest.class
