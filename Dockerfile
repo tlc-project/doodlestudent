@@ -4,10 +4,9 @@ COPY front /front
 
 WORKDIR /front
 
-RUN npm install -g @angular/cli
 RUN npm install
-RUN npm build .
+RUN npm run build
 
 FROM bunkerity/bunkerized-nginx
 
-COPY /front/dist/tlcfront /www
+COPY --from=0 /front/dist/tlcfront /www
