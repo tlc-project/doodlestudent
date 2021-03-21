@@ -8,7 +8,7 @@ COPY . /api
 
 WORKDIR /api
 
-RUN ./mvnw package -Dquarkus.package.type=uber-jar -Dmaven.test.skip=true
+RUN ./mvnw clean package -Dquarkus.package.type=uber-jar -Dmaven.test.skip=true
 
 WORKDIR /api/target
 
