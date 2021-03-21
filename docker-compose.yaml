@@ -9,17 +9,28 @@ services:
       - MYSQL_ALLOW_EMPTY_PASSWORD=true
   mail:
     image: bytemark/smtp
+    container_name: doodle-mail
     restart: always
     ports:
       - "2525:25"
+  etherpad:
+    image: etherpad/etherpad:stable
+    container_name: etherpad
+    ports:
+      - "9001:9001"
+    volumes:
+      - ./api/APIKEY.txt:/opt/etherpad-lite/APIKEY.txt
   back:
+    container_name: doodleback
     build: api
     ports:
       - "8080:8080"
     restart: on-failure
     links:
       - db
+      - mail
   mywww:
+    container_name: doodle-nginx
     build: .
     restart: always
     volumes:

@@ -10,10 +10,7 @@ WORKDIR /api
 
 RUN ./mvnw package -Dquarkus.package.type=uber-jar -Dmaven.test.skip=true
 
-RUN mkdir /work
-
-RUN cp ./target/tlcdemoApp-1.0.0-SNAPSHOT-runner.jar /work/
-
-WORKDIR /work
+WORKDIR /api/target
 
 ENTRYPOINT java -jar tlcdemoApp-1.0.0-SNAPSHOT-runner.jar
+
